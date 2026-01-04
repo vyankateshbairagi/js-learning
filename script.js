@@ -1,1 +1,3 @@
-document.querySelector("#box").textContent
+let p = document.querySelector("p")
+p.classList.add("active");
+
