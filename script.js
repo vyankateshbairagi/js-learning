@@ -1,2 +1,1 @@
-let abc= document.querySelector("h1");
-console.log(abc);
+document.querySelector("#box").textContent
