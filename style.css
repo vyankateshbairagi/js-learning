@@ -1,0 +1,14 @@
+body {
+  background: white;
+  color: black;
+}
+
+.dark {
+  background: black;
+  color: white;
+}
+
+.box {
+  padding: 20px;
+  border: 1px solid gray;
+}
