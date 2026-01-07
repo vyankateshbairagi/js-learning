@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Events and Event Handling</title>
-</head>
-<body>
-    <h1 style="color: blue; font-size: 30px;">Events and Event Handling</h1>
+  </head>
+  <body>
+    <h1 style="color: blue; font-size: 30px">Events and Event Handling</h1>
     <button id="myButton">Click Me!</button>
+    <input type="text" placeholder="Type something..." />
+    <br /><br />
 
+    <label for="citySelect">Select a city:</label>
+    <select id="citySelect">
+      <option selected disabled>Select a city</option>
+      <option value="New York">New York</option>
+      <option value="Los Angeles">Los Angeles</option>
+      <option value="Chicago">Chicago</option>
+    </select>
+
+    <br /><br />
+    <form id="myForm">
+      <input type="text" name="username" placeholder="Enter your username" />
+      <button type="submit">Submit</button>
+    </form>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
