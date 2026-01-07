@@ -68,3 +68,10 @@ let li = document.querySelectorAll("ul li:nth-child(2n)");
 li.forEach(function (val) {
   val.classList.add("highlight");
 });
+
+
+//change size of all paragraph in 16px
+let p = document.querySelectorAll("p");
+p.forEach(val=>{
+  val.style.fontSize="25px";
+});
