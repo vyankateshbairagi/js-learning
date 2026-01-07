@@ -41,3 +41,14 @@ h1.addEventListener("mouseover",()=>{
 window.addEventListener("load",()=>{
     console.log("page loaded");
 });
+
+
+//scroll event
+window.addEventListener("scroll",()=>{
+    console.log("page scrolled");
+}); 
+
+//keydown event
+window.addEventListener("keydown",(event)=>{
+    console.log(`key ${event.key} pressed`);
+});
