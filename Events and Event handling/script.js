@@ -56,8 +56,14 @@
 //input event
 let inp = document.querySelector("input");
 inp.addEventListener("input",(event)=>{
-    console.log(event.target.value); 
-  } );
+if (event.data !== null){
+  console.log(event.data);
+}
+});
+
+// inp.addEventListener("input",(event)=>{
+//     console.log(event.target.value); 
+//   } );
 
 
   //change event
