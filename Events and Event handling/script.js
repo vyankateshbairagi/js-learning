@@ -53,30 +53,38 @@
 //     console.log(`key ${event.key} pressed`);
 // });
 
-//input event
-let inp = document.querySelector("input");
-inp.addEventListener("input",(event)=>{
-if (event.data !== null){
-  console.log(event.data);
-}
-});
-
+// //input event
+// let inp = document.querySelector("input");
 // inp.addEventListener("input",(event)=>{
-//     console.log(event.target.value); 
-//   } );
+// if (event.data !== null){
+//   console.log(event.data);
+// }
+// });
+
+// // inp.addEventListener("input",(event)=>{
+// //     console.log(event.target.value); 
+// //   } );
 
 
-  //change event
-let city = document.querySelector("#citySelect");
-  city.addEventListener("change", () => {
-  console.log(city.value);
-});
+//   //change event
+// let city1 = document.querySelector("#citySelect");
+//   city1.addEventListener("change", () => {
+//   console.log(city.value);
+// });
 
 
-//submit event
-let form = document.querySelector("#myForm");
+// //submit event
+// let form = document.querySelector("#myForm");
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault(); // page reload थांबवतो
-  console.log("Form submitted");
-});
+// form.addEventListener("submit", (event) => {
+//   event.preventDefault(); // page reload थांबवतो
+//   console.log("Form submitted");
+// });
+
+
+// let citylabel = document.querySelector("#cityLabel");
+// let city= document.querySelector("select");
+// city.addEventListener("change", (evt)=>{
+//  console.log(citylabel.textContent=`${evt.target.value} city is selected`);
+// });
+
