@@ -1,20 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Character Counter</title>
-    
-</head>
-<body>
-    <div>   
-        <label> Enter Your Character</label>
-        <input type="input" placeholder="Enter Something....">
 
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Character Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        #char {
+            margin-top: 15px;
+            
+        }
+
+        #msg {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Live Character Counter</h2>
+
+    <div id="char">
+        <label id="charLabel">Enter Your Character</label><br><br>
+        <input id="charInput" type="text" placeholder="Enter Something...." />
     </div>
 
+    <br />
+
+    <div id="msg">
+
+        <label id="msgLabel">Enter Your Message</label><br><br>
+
+        <textarea id="msgInput" placeholder=" Express your Thoughts........." rows="4" cols="40"></textarea>
 
 
-    <script src="style.js"></script>
+    </div>    
+
+        <script src="style.js"></script>
 </body>
+
 </html>
