@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>form</title>
+    <title>Event Bubbling</title>
 
     <style>
     body {
@@ -47,6 +47,20 @@
         <li>fig</li>
         <li>grape</li>
     </ul>
+
+
+
+<!-- event capturing example -->
+    <div id="grandparent-capture" style="padding:20px; border:2px solid red;">
+        Grandparent (Capture)
+        <div id="parent-capture" style="padding:20px; border:2px solid green;">
+            Parent (Capture)
+            <div id="child-capture" style="padding:20px; border:2px solid blue;">
+                Child (Capture)
+            </div>
+        </div>
+    </div>
+
 
 
 
