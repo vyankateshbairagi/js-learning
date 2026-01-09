@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }   
+
+
+
+    .line-through {
+        text-decoration: line-through;
+
+    }
+
+</style>
+
+</head>
+<body>
+
+<!-- event bubbling example -->
+    <div id="grandparent" style="padding:20px; border:2px solid red;">
+        Grandparent
+        <div id="parent" style="padding:20px; border:2px solid green;">
+            Parent
+            <div id="child" style="padding:20px; border:2px solid blue;">
+                Child
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+
+<!-- event bubbling with line through and toggle -->
+    <ul>
+        <label>Fruits:</label>    
+        <li>apple</li>
+        <li>banana</li>
+        <li>cherry</li>         
+        <li>date</li>
+        <li>elderberry</li>
+        <li>fig</li>
+        <li>grape</li>
+    </ul>
+
+
+
+    <script src="style.js"></script>
+</body>
+</html>
