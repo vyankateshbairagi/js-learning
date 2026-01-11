@@ -14,12 +14,12 @@
 
 // Timeout Example and Interval Example
 
-document.getElementById('startTimeout').addEventListener('click', function() {
-       let a= alert("Timeout executed after 3 seconds!");
-   let st = setTimeout(() => {
-    a.display='none';
-    }, 3000);       
+document.getElementById('startTimeout').addEventListener('click', function() {  
+    setTimeout(() => {
+        document.getElementById('output').innerText = "Timeout executed after 3 seconds!";
+    }, 3000);
 });
+
 
 let intervalId; 
 document.getElementById('startInterval').addEventListener('click', function() {
