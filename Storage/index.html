@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Storage Learning: localStorage, sessionStorage & Cookies</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .storage-section {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .storage-section h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        .info-box {
+            background: #f0f4ff;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .info-box h3 {
+            color: #764ba2;
+            margin-bottom: 10px;
+        }
+        .info-box ul {
+            margin-left: 20px;
+        }
+        .info-box li {
+            margin: 5px 0;
+            color: #555;
+        }
+        .control-group {
+            margin: 20px 0;
+            padding: 15px;
+            background: #fafafa;
+            border-radius: 8px;
+        }
+        .control-group h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        input[type="text"], input[type="number"] {
+            padding: 10px;
+            margin: 5px 5px 5px 0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            width: 200px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        button.delete {
+            background: #e74c3c;
+        }
+        button.delete:hover {
+            background: #c0392b;
+        }
+        button.clear-all {
+            background: #f39c12;
+        }
+        button.clear-all:hover {
+            background: #d68910;
+        }
+        .output {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .highlight {
+            color: #3498db;
+            font-weight: bold;
+        }
+        .comparison-table {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        .comparison-table th {
+            background: #667eea;
+            color: white;
+        }
+        .comparison-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎓 JavaScript Storage Tutorial</h1>
+        
+        <!-- COMPARISON TABLE -->
+        <div class="storage-section">
+            <h2>📊 Storage Comparison</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>localStorage</th>
+                        <th>sessionStorage</th>
+                        <th>Cookies</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Capacity</strong></td>
+                        <td>5-10 MB</td>
+                        <td>5-10 MB</td>
+                        <td>4 KB per cookie</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Persistence</strong></td>
+                        <td>Permanent (until manually deleted)</td>
+                        <td>Until tab/browser closes</td>
+                        <td>Until expiry date</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sent to Server</strong></td>
+                        <td>No</td>
+                        <td>No</td>
+                        <td>Yes (with every request)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Access</strong></td>
+                        <td>Client-side only</td>
+                        <td>Client-side only</td>
+                        <td>Client & Server-side</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Scope</strong></td>
+                        <td>Same origin (all tabs)</td>
+                        <td>Same tab only</td>
+                        <td>Same origin</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- LOCAL STORAGE SECTION -->
+        <div class="storage-section">
+            <h2>💾 1. localStorage</h2>
+            <div class="info-box">
+                <h3>What is localStorage?</h3>
+                <ul>
+                    <li>Stores data with NO expiration time</li>
+                    <li>Data persists even after closing browser</li>
+                    <li>Shared across all tabs/windows of same origin</li>
+                    <li>Perfect for: User preferences, theme settings, app state</li>
+                </ul>
+            </div>
+            
+            <div class="control-group">
+                <h3>🎯 Try it yourself:</h3>
+                <input type="text" id="localKey" placeholder="Enter key (e.g., username)">
+                <input type="text" id="localValue" placeholder="Enter value (e.g., John)">
+                <button onclick="setLocalStorage()">Set Data</button>
+                <button onclick="getLocalStorage()">Get Data</button>
+                <button onclick="removeLocalStorage()" class="delete">Remove Data</button>
+                <button onclick="clearLocalStorage()" class="clear-all">Clear All</button>
+                <button onclick="displayAllLocalStorage()">Show All Data</button>
+            </div>
+            <div id="localOutput" class="output">Output will appear here...</div>
+        </div>
+
+        <!-- SESSION STORAGE SECTION -->
+        <div class="storage-section">
+            <h2>🔄 2. sessionStorage</h2>
+            <div class="info-box">
+                <h3>What is sessionStorage?</h3>
+                <ul>
+                    <li>Stores data for ONE session only</li>
+                    <li>Data is cleared when page session ends (tab/browser closes)</li>
+                    <li>Data is NOT shared between tabs/windows</li>
+                    <li>Perfect for: Form data, temporary state, multi-step processes</li>
+                </ul>
+            </div>
+            
+            <div class="control-group">
+                <h3>🎯 Try it yourself:</h3>
+                <input type="text" id="sessionKey" placeholder="Enter key (e.g., cartItems)">
+                <input type="text" id="sessionValue" placeholder="Enter value (e.g., 5)">
+                <button onclick="setSessionStorage()">Set Data</button>
+                <button onclick="getSessionStorage()">Get Data</button>
+                <button onclick="removeSessionStorage()" class="delete">Remove Data</button>
+                <button onclick="clearSessionStorage()" class="clear-all">Clear All</button>
+                <button onclick="displayAllSessionStorage()">Show All Data</button>
+            </div>
+            <div id="sessionOutput" class="output">Output will appear here...</div>
+            <div class="info-box" style="background: #fff3cd; border-left-color: #f39c12;">
+                <p><strong>🧪 Test:</strong> Open this page in a new tab and check sessionStorage - it will be empty!</p>
+            </div>
+        </div>
+
+        <!-- COOKIES SECTION -->
+        <div class="storage-section">
+            <h2>🍪 3. Cookies</h2>
+            <div class="info-box">
+                <h3>What are Cookies?</h3>
+                <ul>
+                    <li>Small text files stored on user's computer</li>
+                    <li>Sent to server with every HTTP request</li>
+                    <li>Can have expiration dates</li>
+                    <li>Perfect for: Authentication tokens, tracking, server communication</li>
+                </ul>
+            </div>
+            
+            <div class="control-group">
+                <h3>🎯 Try it yourself:</h3>
+                <input type="text" id="cookieName" placeholder="Enter name (e.g., theme)">
+                <input type="text" id="cookieValue" placeholder="Enter value (e.g., dark)">
+                <input type="number" id="cookieDays" placeholder="Days to expire" value="7">
+                <button onclick="setCookie()">Set Cookie</button>
+                <button onclick="getCookie()">Get Cookie</button>
+                <button onclick="deleteCookie()" class="delete">Delete Cookie</button>
+                <button onclick="displayAllCookies()">Show All Cookies</button>
+            </div>
+            <div id="cookieOutput" class="output">Output will appear here...</div>
+        </div>
+
+        <!-- PRACTICAL EXAMPLES -->
+        <div class="storage-section">
+            <h2>🚀 Practical Examples</h2>
+            
+            <div class="control-group">
+                <h3>Example 1: Save User Preferences (localStorage)</h3>
+                <button onclick="saveTheme('dark')">Save Dark Theme</button>
+                <button onclick="saveTheme('light')">Save Light Theme</button>
+                <button onclick="loadTheme()">Load Saved Theme</button>
+            </div>
+            
+            <div class="control-group">
+                <h3>Example 2: Form Data (sessionStorage)</h3>
+                <input type="text" id="formName" placeholder="Your name">
+                <button onclick="saveFormData()">Save to Session</button>
+                <button onclick="loadFormData()">Load from Session</button>
+                <p style="margin-top: 10px; color: #666;"><em>Close and reopen tab - data will be lost!</em></p>
+            </div>
+            
+            <div class="control-group">
+                <h3>Example 3: Remember Me (Cookie)</h3>
+                <input type="text" id="loginUsername" placeholder="Username">
+                <button onclick="rememberUser()">Remember Me (30 days)</button>
+                <button onclick="checkRememberedUser()">Check Remembered User</button>
+                <button onclick="forgetUser()" class="delete">Forget Me</button>
+            </div>
+            
+            <div id="examplesOutput" class="output">Example outputs will appear here...</div>
+        </div>
+
+        <!-- WORKING WITH OBJECTS -->
+        <div class="storage-section">
+            <h2>📦 Storing Objects & Arrays</h2>
+            <div class="info-box">
+                <h3>Important: Storage only accepts strings!</h3>
+                <p>Use <strong>JSON.stringify()</strong> to store objects and <strong>JSON.parse()</strong> to retrieve them.</p>
+            </div>
+            
+            <div class="control-group">
+                <h3>🎯 Example: Store User Object</h3>
+                <button onclick="storeUserObject()">Store User Object</button>
+                <button onclick="retrieveUserObject()">Retrieve User Object</button>
+            </div>
+            <div id="objectOutput" class="output">Object storage output...</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
