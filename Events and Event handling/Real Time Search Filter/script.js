@@ -38,4 +38,52 @@ const users = [
 
 
 function showUsers(arr) {
-    
+    arr.forEach(user => {
+        const card = document.createElement("div");
+        card.classList.add("card"); 
+
+        //create img element
+        const img = document.createElement("img");
+        img.src = user.pic;
+        img.alt = "User profile";
+        img.classList.add("bg-img");    
+        card.appendChild(img);
+
+        //create blurred layer
+        const blurredLayer = document.createElement("div");
+        blurredLayer.classList.add("blurred-layer");
+        card.appendChild(blurredLayer);
+
+        //create user details container
+        const content = document.createElement("div");
+        content.classList.add("content");
+
+        //create name element
+        const name = document.createElement("h2");
+        name.classList.add("name");
+        name.innerText = user.name;
+        content.appendChild(name);  
+
+        //create bio element
+        const bio = document.createElement("p");
+        bio.classList.add("bio");
+        bio.innerText = user.bio;
+        content.appendChild(bio);
+        card.appendChild(content);
+        document.querySelector(".flex.gap-10").appendChild(card);
+    });
+}
+showUsers(users);
+
+const input = document.querySelector("input");
+
+input.addEventListener("keyup", function() {
+    const searchTerm = input.value.toLowerCase();
+    const filteredUsers = users.filter(user => 
+        user.name.toLowerCase().includes(searchTerm) || 
+        user.bio.toLowerCase().includes(searchTerm)
+    );  
+    document.querySelector(".flex.gap-10").innerHTML = "";
+    showUsers(filteredUsers);
+});
+
