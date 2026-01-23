@@ -1,13 +1,37 @@
-h1{
-    color: red;
-    font-size: 36px;
-    text-align: center;
+#out{
+    height: 200px;
+    width: 70px;
+    border: 2px solid black;
+
 }
 
-.intro{
+
+
+#red{
+    background-color: red;
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+    
+    border: 2px dashed black;
+    border-radius: 50%;
+}
+
+#yellow{
     background-color: yellow;
-    color: black;
-    font-weight: 500;
+ height: 50px;
+    width: 50px;
+    margin: 10px;
+    border: 2px dashed black;
+    border-radius: 50%;
 }
 
+#green{
+    background-color: green;
+ height: 50px;
+    width: 50px;
+    margin: 10px;
+    border: 2px dashed black;
+    border-radius: 50%;
+}
 
