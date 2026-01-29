@@ -7,3 +7,5 @@ function Pencil(name, color , price ){
 
 let pencil1 = new Pencil("nataraj" , "black", 10);
 let pencil2 = new Pencil("natara" , "black", 10);
+let pencil3 = new Pencil("natara" , "black", 10);
+
