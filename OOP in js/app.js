@@ -17,4 +17,3 @@ write(text){
 }
 
 let u1 = new Pencil("vyankatesh" ,7555 , "vyankatesh@gmail.com" , "developer");
- )
