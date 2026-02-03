@@ -1,6 +1,8 @@
 let h1 = document.querySelector("h1");
 
 
+// normal
+
 // setTimeout(()=>{
 //     h1.style.color= "red";
 // },1000);
