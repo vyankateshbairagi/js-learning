@@ -1,7 +1,7 @@
 let h1 = document.querySelector("h1");
 
 
-// normal
+// normal.......................
 
 // setTimeout(()=>{
 //     h1.style.color= "red";
@@ -22,7 +22,7 @@ let h1 = document.querySelector("h1");
 
 
 
-// using callback 
+// using callback ...............
 
 
 // function changeColor(color, delay) {
@@ -40,41 +40,41 @@ let h1 = document.querySelector("h1");
 
 
 
-//  color change using promise
+//  color change using promise.......................
 
-function colorChange(color, delay) {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            h1.style.color = color;
-            resolve(`${color} color applied after ${delay} ms`);
+// function colorChange(color, delay) {
+//     return new Promise((resolve) => {
+//         setTimeout(() => {
+//             h1.style.color = color;
+//             resolve(`${color} color applied after ${delay} ms`);
         
-        }, delay);
-    });
+//         }, delay);
+//     });
 
 
-}
+// }
 
-colorChange("red", 1000)
-    .then((res) => {
-        console.log(res);
-        return colorChange("green", 2000);
-    })
+// colorChange("red", 1000)
+//     .then((res) => {
+//         console.log(res);
+//         return colorChange("green", 2000);
+//     })
 
-    .then((res) => {
-        console.log(res);
-        return colorChange("red", 3000);
-    })
-    .then((res) => {
-        console.log(res);
-        return colorChange("yellow", 4000);
-    })
-    .then((res) => {
-        console.log(res);
-    })
-    .catch((err) => {
-        console.log(err);
+//     .then((res) => {
+//         console.log(res);
+//         return colorChange("red", 3000);
+//     })
+//     .then((res) => {
+//         console.log(res);
+//         return colorChange("yellow", 4000);
+//     })
+//     .then((res) => {
+//         console.log(res);
+//     })
+//     .catch((err) => {
+//         console.log(err);
 
-    })
+//     })
 
 
 
@@ -114,4 +114,52 @@ colorChange("red", 1000)
 
 
 
+
+//  color change using async and await    ................
+
+
+function colorChange(color, delay) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            h1.style.color = color;
+            resolve();
+            console.log(`${color} color applied after ${delay} ms`);
+        
+        }, delay);
+    });
+
+
+}
+
+
+async function asignColor(){
+   await colorChange("red",1000);
+   await colorChange("yellow",1000);
+   await colorChange("blue",1000);
+   await colorChange("brown",1000);
+   await colorChange("pink",1000);
+   await colorChange("black",1000);
+
+}
+asignColor();
+
+
+
+
+/// simple example of async and await  and error hadling ...................
+
+async function fetchUserData(){
+    try{
+        let response = await fetch("wrong url for error");         
+        let data = await response.json();
+        console.log(data);
+    }
+
+    catch(err){
+        console.log("error is ", err);
+    }
+
+}
+
+fetchUserData();
 
