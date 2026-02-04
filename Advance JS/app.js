@@ -42,15 +42,17 @@ changeColor("blue", 6000);
 // promises chaining ..........
 
 
-function saveData() {
-    return new Promise((reslove, reject) => {
+function saveData(Data) {
+    return new Promise((resolve, reject) => {
         let internetSpeed = Math.floor(Math.random() * 10);
         if (internetSpeed > 4) {
-            reslove("Success : Data is saved");
+            resolve("Success : Data is saved");
         }else{
-            reject("Failure: Data is not saved");
+            reject("Failure: Weak Connection");
         }
-    })
+    });
 }
+
+saveData("vyankatesh");
 
 
