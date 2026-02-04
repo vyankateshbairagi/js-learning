@@ -49,10 +49,11 @@ function saveData(data) {
     return new Promise((resolve, reject) => {
         let internetSpeed = Math.floor(Math.random() * 10);
         if (internetSpeed > 4) {
-            resolve(`Success: ${data} is saved`);
+            resolve(`Success with InternetSpeed of ${internetSpeed} mbps: ${data}  is saved`);
         } else {
-            reject(`Failure: ${data} not saved (Weak Connection)`);
+            reject(`Failure with InternetSpeed of ${internetSpeed} mbps: ${data} not saved (Weak Connection)`);
         }
+
     });
 }
 
@@ -73,5 +74,7 @@ saveData("vyankatesh")
         console.log(err);
     });
 
+
+    
 
 
