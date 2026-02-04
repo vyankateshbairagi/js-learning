@@ -133,12 +133,19 @@ function colorChange(color, delay) {
 
 
 async function asignColor(){
-   await colorChange("red",1000);
-   await colorChange("yellow",1000);
-   await colorChange("blue",1000);
-   await colorChange("brown",1000);
-   await colorChange("pink",1000);
-   await colorChange("black",1000);
+
+   for( let colors of  ["red", "yellow", "blue", "brown", "pink", "black"]){
+        await colorChange(colors, 1000);
+
+    }
+    console.log("All colors applied successfully");
+
+//    await colorChange("red",1000);
+//    await colorChange("yellow",1000);
+//    await colorChange("blue",1000);
+//    await colorChange("brown",1000);
+//    await colorChange("pink",1000);
+//    await colorChange("black",1000);
 
 }
 asignColor();
