@@ -53,6 +53,19 @@ function saveData(Data) {
     });
 }
 
-saveData("vyankatesh");
+saveData("vyankatesh").then(()=>{
+    console.log("data 1 is saved");
+    return saveData("Gopaldas");
+       
+})
+.then(()=>{
+    console.log("data2 is saved");
+    return saveData("Bairagi");
+}).then(()=>{
+    console.log("data 3 is saved");
+}).catch(()=>{
+    console.log("promise rejected");
+    
+})
 
 
