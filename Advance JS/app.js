@@ -150,7 +150,10 @@ asignColor();
 
 async function fetchUserData(){
     try{
-        let response = await fetch("wrong url for error");         
+        let response = await fetch("wrong url for error");
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
         let data = await response.json();
         console.log(data);
     }
