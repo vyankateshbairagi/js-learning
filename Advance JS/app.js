@@ -39,33 +39,39 @@ changeColor("pink", 5000);
 changeColor("blue", 6000);
 
 
+
+
+
 // promises chaining ..........
 
 
-function saveData(Data) {
+function saveData(data) {
     return new Promise((resolve, reject) => {
         let internetSpeed = Math.floor(Math.random() * 10);
         if (internetSpeed > 4) {
-            resolve("Success : Data is saved");
-        }else{
-            reject("Failure: Weak Connection");
+            resolve(`Success: ${data} is saved`);
+        } else {
+            reject(`Failure: ${data} not saved (Weak Connection)`);
         }
     });
 }
 
-saveData("vyankatesh").then(()=>{
-    console.log("data 1 is saved");
-    return saveData("Gopaldas");
-       
-})
-.then(()=>{
-    console.log("data2 is saved");
-    return saveData("Bairagi");
-}).then(()=>{
-    console.log("data 3 is saved");
-}).catch(()=>{
-    console.log("promise rejected");
-    
-})
+
+saveData("vyankatesh")
+    .then((res) => {
+        console.log(res);
+        return saveData("Gopaldas");
+    })
+    .then((res) => {
+        console.log(res);
+        return saveData("Bairagi");
+    })
+    .then((res) => {
+        console.log(res);
+    })
+    .catch((err) => {
+        console.log(err);
+    });
+
 
 
