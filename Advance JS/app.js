@@ -43,39 +43,35 @@ let h1 = document.querySelector("h1");
 //  color change using promise
 
 function colorChange(color, delay) {
-    return new Promise((res, rej) => {
+    return new Promise((resolve) => {
         setTimeout(() => {
             h1.style.color = color;
+            resolve(`${color} color applied after ${delay} ms`);
+        
         }, delay);
-
-        if (color) {
-            res("color applied");
-        } else {
-            rej("color dont appied")
-        }
-
     });
 
 
 }
 
-colorChange("red", 2000).then(() => {
-    console.log(resolve);
-    return colorChange("green", 2000);
-})
+colorChange("red", 1000)
+    .then((res) => {
+        console.log(res);
+        return colorChange("green", 2000);
+    })
 
-    .then(() => {
-        console.log(resolve);
-        return colorChange("red", 2000);
+    .then((res) => {
+        console.log(res);
+        return colorChange("red", 3000);
     })
-    .then(() => {
-        console.log(resolve);
-        return colorChange("yellow", 2000);
+    .then((res) => {
+        console.log(res);
+        return colorChange("yellow", 4000);
     })
-    .then(() => {
-        console.log(resolve);
+    .then((res) => {
+        console.log(res);
     })
-    .catch(() => {
+    .catch((err) => {
         console.log(err);
 
     })
