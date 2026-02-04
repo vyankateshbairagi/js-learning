@@ -25,16 +25,32 @@ let h1 = document.querySelector("h1");
 // using callback 
 
 
-function changeColor(color,delay){
-    setTimeout(()=>{
-        h1.style.color=color;
+function changeColor(color, delay) {
+    setTimeout(() => {
+        h1.style.color = color;
     }, delay);
 }
 
-changeColor("blue",1000);
-changeColor("red",2000);
-changeColor("yellow",3000);
-changeColor("cyan",4000);
-changeColor("pink",5000);
-changeColor("blue",6000);
+changeColor("blue", 1000);
+changeColor("red", 2000);
+changeColor("yellow", 3000);
+changeColor("cyan", 4000);
+changeColor("pink", 5000);
+changeColor("blue", 6000);
+
+
+// promises chaining ..........
+
+
+function saveData() {
+    return new Promise((reslove, reject) => {
+        let internetSpeed = Math.floor(Math.random() * 10);
+        if (internetSpeed > 4) {
+            reslove("Success : Data is saved");
+        }else{
+            reject("Failure: Data is not saved");
+        }
+    })
+}
+
 
