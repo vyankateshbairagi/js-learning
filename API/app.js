@@ -1,5 +1,5 @@
 //api simple example for api understanding
-fetch('https://api.github.com/users/vyankateshbairagi')
+fetch('https://api.github.com/users/vyankateshbairagi') //fetching data from github api for user vyankateshbairagi //you can replace 'vyankateshbairagi' with any other GitHub username to get their data //fetch returns a promise that resolves to the response of the request
     .then(response => response.json())
     .then(data => { 
         console.log(data);
