@@ -12,3 +12,8 @@ fetch('https://api.github.com/users/vyankateshbairagi') //fetching data from git
 
 //you can run this code in your browser console or in a Node.js environment with fetch support.
 
+  // In this code:
+  // 1. We use the `fetch` function to make a GET request to the GitHub API endpoint for a specific user.
+  // 2. The response is converted to JSON format using `response.json()`.
+  // 3. We then extract the user's name and the number of public repositories from the data and log it to the console.
+  // 4. If there is an error during the fetch operation, it is caught and logged to the console.    
