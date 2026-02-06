@@ -115,40 +115,40 @@ let h1 = document.querySelector("h1");
 
 
 
-//  color change using async and await    ................
+// //  color change using async and await    ................
 
 
-function colorChange(color, delay) {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            h1.style.color = color;
-            resolve();
-            console.log(`${color} color applied after ${delay} ms`);
+// function colorChange(color, delay) {
+//     return new Promise((resolve) => {
+//         setTimeout(() => {
+//             h1.style.color = color;
+//             resolve();
+//             console.log(`${color} color applied after ${delay} ms`);
         
-        }, delay);
-    });
+//         }, delay);
+//     });
 
 
-}
+// }
 
 
-async function asignColor(){
+// async function asignColor(){
 
-   for( let colors of  ["red", "yellow", "blue", "brown", "pink", "black"]){
-        await colorChange(colors, 1000);
+//    for( let colors of  ["red", "yellow", "blue", "brown", "pink", "black"]){
+//         await colorChange(colors, 1000);
 
-    }
-    console.log("All colors applied successfully");
+//     }
+//     console.log("All colors applied successfully");
 
-//    await colorChange("red",1000);
-//    await colorChange("yellow",1000);
-//    await colorChange("blue",1000);
-//    await colorChange("brown",1000);
-//    await colorChange("pink",1000);
-//    await colorChange("black",1000);
+// //    await colorChange("red",1000);
+// //    await colorChange("yellow",1000);
+// //    await colorChange("blue",1000);
+// //    await colorChange("brown",1000);
+// //    await colorChange("pink",1000);
+// //    await colorChange("black",1000);
 
-}
-asignColor();
+// }
+// asignColor();
 
 
 
