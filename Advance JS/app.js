@@ -173,3 +173,4 @@ async function fetchUserData(){
 
 fetchUserData();
 
+// this is a simple example of async and await with error handling. The function fetchUserData tries to fetch data from an incorrect URL, which will result in an error. The error is caught in the catch block and logged to the console.  
