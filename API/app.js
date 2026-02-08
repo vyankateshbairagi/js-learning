@@ -43,3 +43,9 @@ fetchGitHubUser('vyankateshbairagi'); //you can replace 'vyankateshbairagi' with
 // 3. If the response is not successful, we throw an error with the status code.
 // 4. We then convert the response to JSON format and extract the user's name and the number of public repositories, logging them to the console.
 // 5. If there is any error during the fetch operation, it is caught and logged to the console. 
+
+// output will be the same as the previous example, but this version uses async/await syntax for better readability and error handling.
+// You can run this code in your browser console or in a Node.js environment with fetch support.
+// Note: Make sure to replace 'vyankateshbairagi' with any other GitHub username to get their data.
+// This code demonstrates how to use the Fetch API to retrieve data from an external API (GitHub in this case) and handle the response using both promise chaining and async/await syntax.
+
